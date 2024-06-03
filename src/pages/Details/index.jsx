@@ -16,7 +16,7 @@ export function Details() {
 
           <h1>Introdução ao React</h1>
 
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, reiciendis. Libero impedit optio excepturi eum facere recusandae repellendus accusamus perspiciatis fuga quos. Cupiditate esse facere error asperiores reiciendis iure odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias autem asperiores doloribus ullam quisquam, explicabo velit quos quis dignissimos reprehenderit, sapiente dolorum perspiciatis qui blanditiis nobis. Fugiat illum laudantium delectus?</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, reiciendis. Libero impedit optio excepturi eum facere recusandae repellendus accusamus perspiciatis fuga quos. Cupiditate esse facere error asperiores reiciendis iure odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias autem asperiores doloribus ullam quisquam, explicabo velit quos quis dignissimos reprehenderit, sapiente dolorum perspiciatis qui blanditiis nobis. Fugiat illum laudantium delectus? lorem</p>
 
           <Section title="Links úteis">
             <Links>
