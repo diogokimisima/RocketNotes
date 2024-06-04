@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container } from "./styles";
 import { Tag } from "../Tag"
 import PropTypes from 'prop-types'
 
