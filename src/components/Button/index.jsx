@@ -1,4 +1,4 @@
-import { Container } from '../Button/style';
+import { Container } from '../Button/styles';
 import PropTypes from 'prop-types';
 
 export function Button({ title, loading = false, ...rest }) {

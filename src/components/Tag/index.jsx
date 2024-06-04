@@ -1,4 +1,4 @@
-import { Container } from './style';
+import { Container } from './styles';
 import PropsType from "prop-types";
 
 export function Tag({ title }) {
