@@ -2,11 +2,12 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { NoteItem } from "../../components/NoteItem";
 import { TextArea } from "../../components/TextArea";
+import { Section } from "../../components/Section";
 
 import { Container, Form } from "./styles";
 
 export function New() {
-    return(
+    return (
         <Container>
             <Header />
 
@@ -17,12 +18,13 @@ export function New() {
                         <a href="/">Voltar</a>
                     </header>
 
-                    <Input placeholder="Título"/>
-                    
+                    <Input placeholder="Título" />
                     <TextArea placeholder="Observações" />
 
-                    <NoteItem />
-
+                    <Section title="Links úteis">
+                        <NoteItem value="https://rocketseat.com.br"/>
+                        <NoteItem isNew placeholder="Novo link"/>
+                    </Section>
                 </Form>
             </main>
         </Container>
