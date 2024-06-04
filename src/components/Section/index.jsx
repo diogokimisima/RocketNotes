@@ -12,5 +12,5 @@ export function Section({ title, children }) {
 
 Section.propTypes = {
     title: PropsTypes.string.isRequired,
-    children: PropsTypes.string.isRequired
+    children: PropsTypes.node
 };
