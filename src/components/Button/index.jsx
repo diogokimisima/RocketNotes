@@ -15,5 +15,5 @@ export function Button({ title, loading = false, ...rest }) {
 
 Button.propTypes = {
     title: PropTypes.string.isRequired,
-    loading: PropTypes.string.isRequired
+    loading: PropTypes.string
 };
