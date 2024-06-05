@@ -1,11 +1,33 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import PropTypes from 'prop-types';
+
+import { api } from "../services/api"
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+    const [ data, setData ] = useState({});
+
+    async function signIn({ email, password }) {
+
+        try {
+            const response = await api.post("/sessions", { email, password });
+            const { user, token } = response.data;
+            
+           api.defaults.headers.authorization = `Bearer ${token}`;
+           setData({ user, token })
+
+        } catch (error) {
+            if(error.response){
+                alert(error.response.data.message);
+            }else {
+                alert("Não foi possível entrar.")
+            }
+        }
+    }
+
     return (
-        <AuthContext.Provider value={{ name: "Diogo", email: 'dkimisima@gmail.com'}}>
+        <AuthContext.Provider value={{ signIn, user: data.user }}>
             {children}
         </AuthContext.Provider>
     );
@@ -20,13 +42,6 @@ AuthProvider.propTypes = {
     children: PropTypes.node
 };
 
-// Definindo propTypes para o valor do contexto
-AuthProvider.propTypes = {
-    value: PropTypes.shape({
-        email: PropTypes.string.isRequired
-    }).isRequired,
-    children: PropTypes.node
-};
 
 
 export { AuthProvider, useAuth };
