@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import { api } from "../services/api";
 
@@ -22,9 +23,9 @@ function AuthProvider({ children }) {
 
         } catch (error) {
             if (error.response) {
-                alert(error.response.data.message);
+                toast.error(error.response.data.message);
             } else {
-                alert("Não foi possível entrar.");
+                toast.error("Não foi possível entrar.");
             }
         }
     }
@@ -38,18 +39,17 @@ function AuthProvider({ children }) {
 
     async function updateProfile({ user }) {
         try {
-            
             await api.put("/users", user);
             localStorage.setItem("@rockeseat:user", JSON.stringify(user));
 
             setData({ user, token: data.token });
-            alert("Perfil Atualizado")
+            toast.success("Perfil Atualizado");
 
         } catch (error) {
             if (error.response) {
-                alert(error.response.data.message);
+                toast.error(error.response.data.message);
             } else {
-                alert("Não foi possível atualizar o perfil.");
+                toast.error("Não foi possível atualizar o perfil.");
             }
         }
     }

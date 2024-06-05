@@ -1,13 +1,14 @@
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { api } from "../../services/api";
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Container, Form, Background } from './styles';
-
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -19,22 +20,23 @@ export function SignUp() {
   function handleSignUp(event) {
     event.preventDefault();
     if (!name || !email || !password) {
-      return alert("Preencha todos os campos!");
+      return toast.error("Preencha todos os campos!");
     }
 
     api.post("/users", { name, email, password })
-    .then(() => {
-      alert("usuario cadastrado com sucesso");
-      navigate("/");
-    })
-    .catch( error => {
-      if(error.response){
-        alert(error.response.data.message);
-      }else {
-        alert("Não foi possível cadastrar");
-      }
-    });
-
+      .then(() => {
+        toast.success("Usuário cadastrado com sucesso");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000); 
+      })
+      .catch(error => {
+        if (error.response) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error("Não foi possível cadastrar");
+        }
+      });
   }
 
   return (
@@ -51,7 +53,6 @@ export function SignUp() {
           icon={FiUser}
           onChange={e => setName(e.target.value)}
           name="name"
-
         />
 
         <Input
@@ -74,6 +75,9 @@ export function SignUp() {
 
         <Link to="/">Voltar para o Login</Link>
       </Form>
+
+      {/* ToastContainer para exibir os toasts */}
+      <ToastContainer />
     </Container>
   );
 }
