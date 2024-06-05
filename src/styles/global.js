@@ -21,6 +21,7 @@ export default createGlobalStyle`
 
     a {
         text-decoration: none;
+        font-weight: bold;
     }
 
     button, a {

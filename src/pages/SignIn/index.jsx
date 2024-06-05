@@ -1,10 +1,8 @@
-import { FiMail, FiLock } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-
-import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
-
-import { Container, Form, Background } from './styles'
+import { FiMail, FiLock } from 'react-icons/fi';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
+import { Container, Form, Background } from './styles';
+import { Link } from 'react-router-dom';
 
 export function SignIn() {
   return (
@@ -12,27 +10,27 @@ export function SignIn() {
       <Form>
         <h1>Rocket Notes</h1>
         <p>Aplicação para salvar e gerenciar seus links úteis.</p>
-
         <h2>Faça seu login</h2>
 
         <Input
           placeholder="E-mail"
           type="text"
           icon={FiMail}
+          name="email"
         />
 
         <Input
           placeholder="Senha"
           type="password"
           icon={FiLock}
+          name="password"
         />
 
-        <Button title="Entrar" />
+        <Button type="submit" title="Entrar" />
 
-        <Link to="SignUp">Criar conta</Link>
+        <Link to="/SignUp">Criar conta</Link>
       </Form>
-
       <Background />
     </Container>
-  )
+  );
 }
