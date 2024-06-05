@@ -2,19 +2,22 @@ import { RiShutDownLine } from 'react-icons/ri';
 import { Container, Profile, Logout } from "./styles";
 import { useAuth } from '../../hooks/auth';
 
+import profileUndefined from "../../assets/profile.undefined.png"
+
 export function Header() {
-    const { signOut } = useAuth();
+    const { user, signOut } = useAuth();
+
     return (
         <Container>
             <Profile to="/profile">
                 <img
-                    src="https://github.com/diogokimisima.png"
-                    alt="Foto do usuário"
+                    src={user.avatar || profileUndefined }
+                    alt={`Foto de ${user.name}`}
                 />
 
                 <div>
                     <span>Bem-vindo</span>
-                    <strong>Diogo kimisima</strong>
+                    <strong>{user.name}</strong>
                 </div>
             </Profile>
 
@@ -22,5 +25,5 @@ export function Header() {
                 <RiShutDownLine />
             </Logout>
         </Container>
-    )
+    );
 }

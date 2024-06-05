@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/auth";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import profileUndefined from "../../assets/profile.undefined.png"
 
 import { Container, Form, Avatar } from './styles';
 
@@ -19,7 +20,7 @@ export function Profile() {
 
     async function handleUpdate() {
         const user = {
-            name, 
+            name,
             email,
             password: passwordNew,
             old_password: passwordOld
@@ -39,8 +40,8 @@ export function Profile() {
             <Form>
                 <Avatar>
                     <img
-                        src="https://github.com/diogokimisima.png"
-                        alt="Foto do usuário"
+                        src={user.avatar || profileUndefined}
+                        alt={`Foto de ${user.name}`}
                     />
 
                     <label htmlFor="avatar">
@@ -82,7 +83,7 @@ export function Profile() {
                     onChange={e => setPasswordNew(e.target.value)}
                 />
 
-                <Button title="Salvar" onClick={handleUpdate}/>
+                <Button title="Salvar" onClick={handleUpdate} />
             </Form>
         </Container>
     )
