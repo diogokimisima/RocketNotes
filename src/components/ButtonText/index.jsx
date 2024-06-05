@@ -14,6 +14,6 @@ export function ButtonText({ title, isActive = false , ...rest }) {
 }
 
 ButtonText.propTypes = {
-    title: PropsTypes.string.isRequired,
+    title: PropsTypes.string,
     isActive: PropsTypes.bool,
 }

@@ -18,12 +18,12 @@ export function Home() {
         <h1>Rocketnotes</h1>
       </Brand>
 
-      <Header></Header>
+      <Header/>
 
       <Menu>
-        <li><ButtonText title="Todos" isActive /></li>
-        <li><ButtonText title="React" /></li>
-        <li><ButtonText title="NodeJs" /></li>
+        <li><ButtonText title="Todos" isActive={true} /></li>
+        <li><ButtonText title="React" isActive={false}/></li>
+        <li><ButtonText title="NodeJs" isActive={false}/></li>
       </Menu>
 
       <Search>
