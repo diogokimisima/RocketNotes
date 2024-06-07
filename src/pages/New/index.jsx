@@ -19,6 +19,10 @@ export function New() {
         setNewLink("");
     }
 
+    function hanndleRemoveLink(deleted) {
+        setLinks(prevState => prevState.filter(link => link !== deleted));
+    }
+
     return (
         <Container>
             <Header />
@@ -35,15 +39,13 @@ export function New() {
 
                     <Section title="Links úteis">
                         {
-                            links.map((link, index) => {
-                                return(
+                            links.map((link, index) => (
                                 <NoteItem
                                     key={String(index)}
                                     value={link}
-                                    onClick={() => { }}
+                                    onClick={() => hanndleRemoveLink(link)}
                                 />
-                                );
-                            })
+                            ))
                         }
                         <NoteItem
                             isNew
