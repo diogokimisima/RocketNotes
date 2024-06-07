@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -45,6 +47,20 @@ export function New() {
     }
 
     async function handleNewNote() {
+        if(!title){
+            return toast.warning("Digite um título da nota!")
+        }
+
+        if(newLink){
+            return toast.warning("Voce deixou um link no campo para adicionar!")
+        }
+
+        if(newTag){
+            return toast.warning.dark("Voce deixou uma tag no campo para adicionar!")
+        }
+
+
+
         await api.post("/notes", {
             title,
             description,
@@ -123,6 +139,7 @@ export function New() {
                     />
                 </Form>
             </main>
+            <ToastContainer/>
         </Container>
     )
 }

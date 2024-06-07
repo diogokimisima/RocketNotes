@@ -76,7 +76,6 @@ export function SignUp() {
         <Link to="/">Voltar para o Login</Link>
       </Form>
 
-      {/* ToastContainer para exibir os toasts */}
       <ToastContainer />
     </Container>
   );
