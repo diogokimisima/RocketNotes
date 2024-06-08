@@ -47,19 +47,17 @@ export function New() {
     }
 
     async function handleNewNote() {
-        if(!title){
+        if (!title) {
             return toast.warning("Digite um título da nota!")
         }
 
-        if(newLink){
+        if (newLink) {
             return toast.warning("Voce deixou um link no campo para adicionar!")
         }
 
-        if(newTag){
+        if (newTag) {
             return toast.warning.dark("Voce deixou uma tag no campo para adicionar!")
         }
-
-
 
         await api.post("/notes", {
             title,
@@ -68,8 +66,12 @@ export function New() {
             links
         });
 
-        alert("Nota criado com sucesso");
-        navigate("/");
+
+        toast.success("Nota criado com sucesso");
+        setTimeout(() => {
+            navigate("/");
+        }, 2000)
+
     }
 
     return (
@@ -139,7 +141,7 @@ export function New() {
                     />
                 </Form>
             </main>
-            <ToastContainer/>
+            <ToastContainer />
         </Container>
     )
 }
