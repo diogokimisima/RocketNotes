@@ -17,6 +17,22 @@ import { ButtonText } from '../../components/ButtonText';
 
 export function Home() {
   const [tags, setTags] = useState([]);
+  const [tagsSelected, setTagSelected] = useState([]);
+
+  function handleTagSelected(tagName) {
+    const alreadySelected = tagsSelected.includes(tagName);
+    
+      if (alreadySelected) {
+        const filteredTags = tagsSelected.filter(tag => tag !== tagName);
+        setTagSelected(filteredTags);
+
+      } else {
+        setTagSelected(prevState => [...prevState, tagName])
+      }
+
+  }
+
+
 
   useEffect(() => {
     async function fetchTags() {
@@ -37,12 +53,19 @@ export function Home() {
       <Header />
 
       <Menu>
-        <li><ButtonText title="Todos" isActive={true} /></li>
+        <li><ButtonText
+          title="Todos"
+          isActive={tagsSelected.length === 0}
+          onClick={() => handleTagSelected("All")}
+        />
+        </li>
         {
           tags && tags.map(tag => (
             <li key={String(tag.id)}>
               <ButtonText
                 title={tag.name}
+                onClick={() => handleTagSelected(tag.name)}
+                isActive={tagsSelected.includes(tag.name)}
               />
             </li>
           ))
