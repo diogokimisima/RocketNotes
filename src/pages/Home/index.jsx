@@ -22,6 +22,11 @@ export function Home() {
   const [notes, setNotes] = useState([]);
 
   function handleTagSelected(tagName) {
+
+    if (tagName === "all") {
+      return setTagSelected([])
+    }
+
     const alreadySelected = tagsSelected.includes(tagName);
 
     if (alreadySelected) {
@@ -57,7 +62,7 @@ export function Home() {
   return (
     <Container>
       <Brand>
-        <h1>Rocketnotes</h1>
+        <h1>Notas</h1>
       </Brand>
 
       <Header />
@@ -66,7 +71,7 @@ export function Home() {
         <li><ButtonText
           title="Todos"
           isActive={tagsSelected.length === 0}
-          onClick={() => handleTagSelected("All")}
+          onClick={() => handleTagSelected("all")}
         />
         </li>
         {
