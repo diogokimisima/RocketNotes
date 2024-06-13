@@ -4,6 +4,7 @@ export const Container = styled.div`
    width: 100%;
    height: 100vh;
    
+   
    display: grid;
    grid-template-rows: 105px auto;
    grid-template-areas: 
@@ -19,6 +20,12 @@ export const Container = styled.div`
 
 export const Links = styled.ul`
    list-style: none;
+   display: inline-block;
+   width: 530px; 
+   white-space: nowrap;
+   overflow: hidden; 
+   text-overflow: ellipsis; 
+   vertical-align: middle; 
 
    > li {
       margin-top: 12px;
@@ -30,7 +37,7 @@ export const Links = styled.ul`
    } 
  `;
 
- export const Content = styled.div`
+export const Content = styled.div`
    max-width: 550px;
    margin: 0 auto;
 
