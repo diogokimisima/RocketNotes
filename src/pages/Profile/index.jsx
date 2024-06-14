@@ -16,39 +16,40 @@ export function Profile() {
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
-    const [passwordOld, setPasswordOld] = useState();
-    const [passwordNew, setPasswordNew] = useState();
+    const [passwordOld, setPasswordOld] = useState("");
+    const [passwordNew, setPasswordNew] = useState("");
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
-    const [ avatar, setAvatar ] = useState(avatarUrl); 
-    const [ avatarFile, setAvatarFile ] = useState(null); 
+    const [avatar, setAvatar] = useState(avatarUrl);
+    const [avatarFile, setAvatarFile] = useState(null);
 
     const navigate = useNavigate();
 
     function handleBack() {
-        navigate(-1)
-      }
+        navigate(-1);
+    }
 
     async function handleUpdate() {
-        const user = {
+        const updated = {
             name,
             email,
             password: passwordNew,
-            old_password: passwordOld
-        }
+            old_password: passwordOld,
+        };
 
-        await updateProfile({ user, avatarFile })
+        const userUpdated = { ...user, ...updated };
+
+        await updateProfile({ user: userUpdated, avatarFile });
     }
 
-    function handleChangeAvatar(event){
+    function handleChangeAvatar(event) {
         const file = event.target.files[0];
         setAvatarFile(file);
 
         const imagePreview = URL.createObjectURL(file);
         setAvatar(imagePreview);
     }
-
 
     return (
         <Container>
@@ -95,6 +96,7 @@ export function Profile() {
                     placeholder="Senha atual"
                     type="password"
                     icon={FiLock}
+                    value={passwordOld}
                     onChange={e => setPasswordOld(e.target.value)}
                 />
 
@@ -102,11 +104,12 @@ export function Profile() {
                     placeholder="Nova Senha"
                     type="password"
                     icon={FiLock}
+                    value={passwordNew}
                     onChange={e => setPasswordNew(e.target.value)}
                 />
 
                 <Button title="Salvar" onClick={handleUpdate} />
             </Form>
         </Container>
-    )
+    );
 }

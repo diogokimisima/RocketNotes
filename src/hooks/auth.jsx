@@ -49,7 +49,7 @@ function AuthProvider({ children }) {
             }
 
             await api.put("/users", user);
-            localStorage.setItem("@rockeseat:user", JSON.stringify(user));
+            localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
 
             setData({ user, token: data.token });
             toast.success("Perfil Atualizado");
