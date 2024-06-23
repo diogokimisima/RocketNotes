@@ -15,7 +15,6 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
 
   > h1 {
@@ -37,6 +36,31 @@ export const Form = styled.form`
     margin-top: 124px;
     color: ${({ theme }) => theme.COLORS.ORANGE};
   }
+
+  @media(max-width: 590px) {
+    padding: 0 50px;
+    width: 100%;
+
+    > h1 {
+    font-size: 40px;
+  }
+
+  > h2 {
+    font-size: 20px;
+    margin: 35px 0;
+  }
+
+  > p {
+    font-size: 12px;
+  }
+
+  > a {
+    margin-top: 50px;
+    color: ${({ theme }) => theme.COLORS.ORANGE};
+  }
+
+  }
+
 `
 
 export const Background = styled.div`

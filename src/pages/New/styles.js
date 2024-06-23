@@ -21,6 +21,12 @@ export const Container = styled.div`
     flex-wrap: wrap;
     margin-top: 20px;
   }
+
+  @media(max-width: 650px){
+    > main {
+    padding: 20px
+    } 
+  }
 `
 
 export const Form = styled.form`
@@ -38,5 +44,12 @@ export const Form = styled.form`
       font-size: 20px;
       color: ${({ theme }) => theme.COLORS.GRAY_100}
     }
+  }
+
+  @media(max-width: 650px){
+    > header h1 {
+    font-size:22px;
+  }
+
   }
 `

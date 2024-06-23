@@ -25,6 +25,13 @@ export const Container = styled.div`
         }
 
     }
+
+    @media(max-width: 650px){
+    
+    > header {
+      padding: 0 20px;
+ }
+}
 `
 
 export const Form = styled.form`

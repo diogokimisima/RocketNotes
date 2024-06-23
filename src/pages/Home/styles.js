@@ -15,6 +15,12 @@ export const Container = styled.div`
   "newnote content";
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+  @media(max-width: 650px){
+  display: flex;
+  flex-direction: column;
+  }
+  
 `
 
 export const Brand = styled.div`
@@ -34,6 +40,11 @@ export const Brand = styled.div`
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.ORANGE}
   };
+
+  
+  @media(max-width: 650px){
+    display: none;
+  }
 `
 
 export const Menu = styled.ul`
@@ -46,25 +57,54 @@ export const Menu = styled.ul`
   > li {
     margin-bottom: 24px
   }
-`
+
+  @media(max-width: 650px){
+  display: flex;
+  flex-direction: row;
   
+  align-items: center;
+  overflow-x: auto;
+
+  width: 100%;
+  padding: 20px;
+
+
+  > li {
+    margin: 0 14px;
+    list-style-type: none; 
+  }
+
+  
+  }
+`
+
 
 export const Search = styled.div`
   grid-area: search;
   padding: 64px 64px 0;
+
+  @media(max-width: 650px){
+    padding: 20px 30px 0
+    
+  }
 `
 
 export const Content = styled.div`
   grid-area: content;
   padding: 0 64px;
   overflow-y: auto;
+
+  @media(max-width: 650px){
+    padding: 20px  30px 0;
+    height: 100%;
+  }
 `
 
 export const NewNote = styled(Link)`
   grid-area: newnote;
 
   background-color: ${({ theme }) => theme.COLORS.ORANGE};
-  color: ${({ theme }) => theme.COLORS. BACKGROUND_900};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
 
   display: flex;
@@ -73,6 +113,12 @@ export const NewNote = styled(Link)`
 
   svg {
     margin-right: 20px;
+  }
+
+  @media(max-width: 650px){
+    padding: 10px;
+    margin: 15px 65px;
+    border-radius: 10px;
   }
   
 `   

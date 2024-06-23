@@ -16,6 +16,14 @@ export const Container = styled.div`
       overflow-y: scroll;
       padding: 64px 0;
    }
+
+   @media(max-width: 650px){
+    
+      > main {
+      margin:0 40px;
+      margin-top: -40px
+   }
+  }
 `;
 
 export const Links = styled.ul`
@@ -33,7 +41,6 @@ export const Links = styled.ul`
       a {
          color: ${({ theme }) => theme.COLORS.WHITE};
       }
-
    } 
  `;
 
@@ -59,6 +66,16 @@ export const Content = styled.div`
       margin-top: 16px;
       text-align: justify;
    }
+
+      @media(max-width: 650px){
+         > h1 {
+            font-size: 30px
+         }
+
+         > p {
+            font-size: 14px;
+   }
+  }
  `
 
 

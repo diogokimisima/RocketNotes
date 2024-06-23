@@ -24,4 +24,14 @@ export const Container = styled.button`
         display: flex;
         margin-top: 24px
     }
+
+    @media(max-width: 650px){
+    height: 120px;
+
+    > h1 {
+        font-size: 20px;
+    }
+  }
+
+    
 `

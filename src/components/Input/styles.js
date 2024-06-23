@@ -29,4 +29,10 @@ export const Container = styled.div`
     > svg {
         margin: 0 16px;
     }
+
+    @media(max-width: 650px){
+        height: 40px;
+        font-size: 2px;
+
+    }
 `
