@@ -31,7 +31,7 @@ export const Container = styled.div`
     }
 
     @media(max-width: 650px){
-        height: 40px;
+        height: 58px;
         font-size: 2px;
 
     }

@@ -41,6 +41,7 @@ export const Form = styled.form`
   @media(max-width: 590px) {
     padding: 0 50px;
     width: 100%;
+    height: 100%;
 
     > h1 {
     font-size: 40px;
