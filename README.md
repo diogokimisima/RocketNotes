@@ -1,5 +1,6 @@
 <h1 align="center">Projeto Front-End com Vite, React e Styled Components</h1>
 
+🗔 Confira a aplicação: https://virtual-notes.vercel.app <br>
 
 🔎 Bem-vindo ao meu projeto!
 📄 Explicação: Explicação: Este repositório contém os arquivos frontend do projeto "Notes", uma aplicação web desenvolvida com React utilizando Vite como bundler para um desenvolvimento rápido e eficiente. A estilização foi realizada com o auxílio de Styled Components para manter o CSS modular e dinâmico. As chamadas de API foram gerenciadas com Axios, e o Toastify React foi utilizado para exibir notificações de validação de forma elegante.
